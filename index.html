@@ -62,7 +62,9 @@
 
             $("#loginWithFacebookButton").click(function(){
                 ref.authWithOAuthPopup("facebook", function(error, authData) { 
-                    $("#login")
+                    $("#login").css("display", "none");
+                    $("#loginWithFacebookButton").css("display", "none");
+                    $("#loggedIn").css("display", "block");
                 }, {
                     remember: "sessionOnly",
                     scope: "email,user_likes"
