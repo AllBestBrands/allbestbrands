@@ -62,9 +62,16 @@
 
             $("#loginWithFacebookButton").click(function(){
                 ref.authWithOAuthPopup("facebook", function(error, authData) { 
-                    $("#login").css("display", "none");
-                    $("#loginWithFacebookButton").css("display", "none");
-                    $("#loggedIn").css("display", "block");
+                    
+                    if (error) {
+                        console.log("Login Failed!", error);
+                    } else {
+                        // console.log("Authenticated successfully with payload:", authData);
+                        $("#login").css("display", "none");
+                        $("#loginWithFacebookButton").css("display", "none");
+                        $("#loggedIn").css("display", "block");
+                    }
+
                 }, {
                     remember: "sessionOnly",
                     scope: "email,user_likes"
