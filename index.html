@@ -7,7 +7,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <meta charset="utf-8">
         <title>Login</title>
-        <meta name="description" content="This is a quiz">
+        <meta name="description" content="Facebook Login">
         <meta name="author" content="Daniel Dube">
 
         <!-- Mobile Specific Metas
@@ -26,15 +26,18 @@
 
     </head>
     <body>
-        <div
-             class="fb-like"
-             data-share="true"
-             data-width="450"
-             data-show-faces="true">
+        <div class="container">
+            <div
+                 class="fb-like"
+                 data-share="true"
+                 data-width="450"
+                 data-show-faces="true">
+            </div>
         </div>
         <!-- JS
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="js/firebase.js"></script>
         <script>
             window.fbAsyncInit = function() {
                 FB.init({
@@ -48,7 +51,7 @@
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) {return;}
                 js = d.createElement(s); js.id = id;
-                js.src = "//connect.facebook.net/en_US/sdk.js";
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
