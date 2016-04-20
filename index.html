@@ -61,7 +61,7 @@
             }(document, 'script', 'facebook-jssdk'));
 
             $("#loginWithFacebookButton").click(function(){
-                ref.authWithOAuthRedirect("facebook", function(error, authData) { 
+                ref.authWithOAuthPopup("facebook", function(error, authData) { 
                     $("#login").css("display", "none");
                     $("#loginWithFacebookButton").css("display", "none");
                     $("#loggedIn").css("display", "block");
