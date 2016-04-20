@@ -27,21 +27,23 @@
     </head>
     <body>
         <div class="container">
-            
-            <h4>Login</h4>
-             <a href="#" 
-             style="margin: 20px;"
-             class="btn btn-primary bt-social" 
-             data-provider="facebook" 
-             id="loginWithFacebookButton">Facebook</a>
-             <h4 id="loggedIn" style="display: none;">Logged in</h4>
-             
+
+            <h4 id="login">Login</h4>
+            <a href="#" 
+               style="margin: 20px;"
+               class="btn btn-primary bt-social" 
+               data-provider="facebook" 
+               id="loginWithFacebookButton">Facebook</a>
+            <h4 id="loggedIn" style="display: none;">Logged in</h4>
+
         </div>
         <!-- JS
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <script src="js/jquery-2.2.3.min.js"></script>
         <script src="js/firebase.js"></script>
         <script>
+            var ref = new Firebase("https://allbestbrands.firebaseio.com");
+            
             window.fbAsyncInit = function() {
                 FB.init({
                     appId      : '960632784021692',
@@ -57,15 +59,15 @@
                 js.src = "https://connect.facebook.net/en_US/sdk.js";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
+
             $("#loginWithFacebookButton").click(function(){
                 ref.authWithOAuthPopup("facebook", function(error, authData) { 
-                /* Your Code */ 
-            }, {
-                remember: "sessionOnly",
-                scope: "email,user_likes"
+                    $("#login")
+                }, {
+                    remember: "sessionOnly",
+                    scope: "email,user_likes"
+                });
             });
-            });
-            var ref = new Firebase("https://allbestbrands.firebaseio.com");
             
         </script>
 
