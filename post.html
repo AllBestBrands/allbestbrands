@@ -1,1 +1,154 @@
-Hey its Daniel
+<!doctype html>
+<html>
+    <head lang="en">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Basic Page Needs
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta charset="utf-8">
+        <title>AllBestBrands</title>
+        <meta name="description" content="AllBestBrands Upload Form">
+        <meta name="author" content="Daniel Dube">
+
+        <!-- Mobile Specific Metas
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+        <!-- CSS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/skeleton.css">
+    </head>
+    <body>
+        <div class="container">
+            <h5 style="margin-top: 20px;"><strong>All Best Brands Upload Form</strong></h5>
+            <!-- The above form looks like this -->
+            <form style="margin-top: 20px;margin-bottom: 50px;">
+                <div class="row">
+                    <div class="six columns">
+                        <label for="jobOfferer">Job Offerer</label>
+                        <input class="u-full-width" type="text" placeholder="Business Botswana" id="jobOffererInput">
+                    </div>
+                    <div class="six columns">
+                        <label for="exampleRecipientInput">Job Title</label>
+                        <input class="u-full-width" type="text" placeholder="HR Manager" id="jobTitleInput">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="numberInput">Number</label>
+                        <input class="u-full-width" type="tel" onkeypress="return event.charCode >= 48 && event.charCode <= 57" placeholder="71234567" id="numberInput">
+                    </div>
+                    <div class="six columns">
+                        <label for="emailInput">Email Applications To</label>
+                        <input class="u-full-width" type="email" placeholder="mail@mailbox.com" id="emailInput">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="dateInput">Due Date</label>
+                        <input class="u-full-width" type="date" placeholder="12/12/16" id="dateInput">
+                    </div>
+                    <div class="six columns">
+                        <label for="sourceInput">Source</label>
+                        <input class="u-full-width" type="text" placeholder="Source" id="sourceInput">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="qualificationsInput">Qualifications</label>
+                        <input class="u-full-width" type="text" placeholder="BBA in ..." id="qualificationsInput">
+                    </div>
+                    <!--
+<div class="six columns">
+<label for="sourceInput">Source</label>
+<input class="u-full-width" type="text" placeholder="Source" id="sourceInput">
+</div>
+-->
+                </div>
+                <label for="jobDescription">Job Description</label>
+                <textarea class="u-full-width" placeholder="Blah blah ..." id="jobDescriptionTextArea"></textarea>
+                <input class="button-primary" type="submit" value="Submit" id="submitJob">
+            </form>
+
+            <div class="footer">
+                <span>
+                    <h4 id="timer"></h4>
+                </span>
+                <span>
+                    <h6 style="font-size: 13px;">Copyright &#169; AllBestBrands</h6>
+                </span>
+            </div>
+            <!-- Always wrap checkbox and radio inputs in a label and use a <span class="label-body"> inside of it -->
+
+            <!-- Note: The class .u-full-width is just a utility class shorthand for width: 100% -->   
+        </div>
+        <!-- JS
+–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="js/firebase.js"></script>
+        <script>
+            /** VARS
+                *******************************************************************/
+            var firebaseRootURL = new Firebase("https://allbestbrands.firebaseio.com/");
+            var postJobFBURL = firebaseRootURL.child("jobs").push();
+            var myVar = setInterval(myTimer, 1000);
+
+            /** FUNCTIONS
+                *******************************************************************/
+
+            function validateNumber(){
+                if($.isNumeric(number)){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+            /** TIME ON SITE
+                *******************************************************************/
+            function myTimer() {
+                var d = new Date();
+                document.getElementById("timer").innerHTML = "Time: ".concat(d.toLocaleTimeString());
+            }
+
+            /** POST JOB TO FIREBASE
+                *******************************************************************/
+            $("#submitJob").click(function(){
+                /** FIELDS
+                *******************************************************************/
+                var toCall = $("#numberInput").val();
+                var dueDate = $("#dateInput").val();
+                var jobDescription = $("#jobDescriptionTextArea").val();
+                var jobOfferer = $("#jobOffererInput").val();
+                var jobTitle = $("#jobTitleInput").val();
+                var mailto = $("#emailInput").val();
+                var source = $("#sourceInput").val();
+                var qualifications = $("#sourceInput").val();
+                var date = new Date().toLocaleTimeString();
+
+                /** FUNCTION UPLOADS JOB FORM TO DATABASE
+                *******************************************************************/
+                postJobFBURL.set({
+                    call : toCall,
+                    date : date,
+                    dateDue : dueDate,
+                    id : postJobFBURL.key(),
+                    jobDescription : jobDescription,
+                    jobOfferer : jobOfferer,
+                    jobTitle : jobTitle,
+                    likes : 0,
+                    mailto : mailto,
+                    qualifications: qualifications,
+                    source : source,
+                    user : "d719f28c85793505"
+                });
+            });
+
+        </script>
+    </body>
+</html>
