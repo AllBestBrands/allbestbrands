@@ -71,6 +71,10 @@
                         <label for="qualificationsInput">Qualifications</label>
                         <input class="u-full-width" type="text" placeholder="BBA in ..." id="qualificationsInput">
                     </div>
+                    <div class="six columns">
+                        <label for="siteInput">Site</label>
+                        <input class="u-full-width" type="text" placeholder="www.something.com" id="siteInput">
+                    </div>
                     <!--
 <div class="six columns">
 <label for="sourceInput">Source</label>
@@ -138,6 +142,7 @@
                 var qualifications = $("#sourceInput").val();
                 var date = new Date().toLocaleTimeString();
                 var user = "d719f28c85793505";
+                var site = $("#siteInput").val();
 
                 /** FUNCTION UPLOADS JOB FORM TO DATABASE
                 *******************************************************************/
@@ -152,8 +157,8 @@
                     likes : 0,
                     mailto : mailto,
                     qualifications: qualifications,
-                    source : source
-                    // user : user
+                    source : source,
+                    web : site
                 });
             });
 
