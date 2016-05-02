@@ -22,7 +22,6 @@
           if (error) {
               console.log("Login Failed!", error);
           } else {
-              userAuthData = authData;
               // console.log("Authenticated successfully with payload:", authData);
               // $("#login").css("display", "none");
               // $("#loginWithFacebookButton").css("display", "none");
@@ -30,6 +29,7 @@
               // console.log(authData);
               if (authData.facebook.id==1000231920018619){
                   window.location="/post.html"
+                  userAuthData = authData;
               }
               else
               {
