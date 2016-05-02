@@ -91,6 +91,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– -->
         <script src="js/jquery-2.2.3.min.js"></script>
         <script src="js/firebase.js"></script>
+        <script src="js/myscript.js"></script>
         <script>
             /** VARS
                 *******************************************************************/
@@ -130,6 +131,7 @@
                 var source = $("#sourceInput").val();
                 var qualifications = $("#sourceInput").val();
                 var date = new Date().toLocaleTimeString();
+                var user = userAuthData.facebook.id;
 
                 /** FUNCTION UPLOADS JOB FORM TO DATABASE
                 *******************************************************************/
@@ -145,7 +147,7 @@
                     mailto : mailto,
                     qualifications: qualifications,
                     source : source,
-                    user : "d719f28c85793505"
+                    user : user
                 });
             });
 
