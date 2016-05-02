@@ -1,6 +1,6 @@
 
 var ref = new Firebase("https://allbestbrands.firebaseio.com");
-userAuthData;
+userAuthData = null;
 window.fbAsyncInit = function() {
    FB.init({
        appId      : '960632784021692',
