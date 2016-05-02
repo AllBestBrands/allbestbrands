@@ -1,6 +1,6 @@
 
 var ref = new Firebase("https://allbestbrands.firebaseio.com");
-userAuthData = null;
+
 window.fbAsyncInit = function() {
    FB.init({
        appId      : '960632784021692',
@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
 
 $("#loginWithFacebookButton").click(function(){
    ref.authWithOAuthPopup("facebook", function(error, authData) { 
-       this.userAuthData = authData.facebook.id;
+       userAuthData = authData.facebook.id;
        if (error) {
            console.log("Login Failed!", error);
        } else {
