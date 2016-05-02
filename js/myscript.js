@@ -28,8 +28,8 @@
               // $("#loggedIn").css("display", "block");
               // console.log(authData);
               if (authData.facebook.id==1000231920018619){
-                  window.location="/post.html"
                   userAuthData = authData;
+                  window.location="/post.html"
               }
               else
               {
