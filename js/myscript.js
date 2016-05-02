@@ -37,7 +37,7 @@
           }
 
       }, {
-          remember: "sessionOnly",
+          remember: "none",
           scope: "email,user_likes"
       });
   });
