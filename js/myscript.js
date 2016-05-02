@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
 
 $("#loginWithFacebookButton").click(function(){
    ref.authWithOAuthPopup("facebook", function(error, authData) { 
-       
+       userAuthData = authData.facebook.id;
        if (error) {
            console.log("Login Failed!", error);
        } else {
@@ -29,7 +29,6 @@ $("#loginWithFacebookButton").click(function(){
            // $("#loggedIn").css("display", "block");
            // console.log(authData);
            if (authData.facebook.id==1000231920018619){
-               userAuthData = authData;
                window.location="/post.html"
            }
            else
