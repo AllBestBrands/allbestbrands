@@ -1,5 +1,6 @@
-  var ref = new Firebase("https://allbestbrands.firebaseio.com");
-  var userAuthData = null;
+ (function(){ 
+   var ref = new Firebase("https://allbestbrands.firebaseio.com");
+  
   window.fbAsyncInit = function() {
       FB.init({
           appId      : '960632784021692',
@@ -28,7 +29,7 @@
               // $("#loggedIn").css("display", "block");
               // console.log(authData);
               if (authData.facebook.id==1000231920018619){
-                  userAuthData = authData;
+                  var userAuthData = authData;
                   window.location="/post.html"
               }
               else
@@ -42,4 +43,4 @@
           scope: "email,user_likes"
       });
   });
-  
+ });
