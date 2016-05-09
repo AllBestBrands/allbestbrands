@@ -28,13 +28,13 @@ $("#loginWithFacebookButton").click(function(){
            // $("#loginWithFacebookButton").css("display", "none");
            // $("#loggedIn").css("display", "block");
            // console.log(authData);
-           if (authData.facebook.id==1000231920018619){
+         //  if (authData.facebook.id==1000231920018619){
                window.location="/post.html"
-           }
-           else
-           {
-               alert("Not authorised");
-           }
+         //  }
+         //  else
+         //  {
+         //       alert("Not authorised");
+         //  }
        }
 
    }, {
