@@ -19,7 +19,7 @@ window.fbAsyncInit = function() {
 
 $("#loginWithFacebookButton").click(function(){
    ref.authWithOAuthPopup("facebook", function(error, authData) { 
-       userAuthData = authData.facebook.id;
+       authData = authData.facebook.id;
        if (error) {
            console.log("Login Failed!", error);
        } else {
